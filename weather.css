@@ -1,0 +1,501 @@
+body{
+margin:0;
+font-family:system-ui;
+background:radial-gradient(#5998e0,#0b3976);
+color:bisque;
+}
+
+
+/* Header :( */
+
+.top{
+text-align:center;
+padding:30px;
+}
+
+.city{
+font-size:40px;
+font-weight:500;
+}
+
+.temperature{
+font-size:60px;
+color: azure;
+}
+
+.condition{
+opacity:0.9;
+}
+
+
+/* MAIN GRID */
+
+.dashboard{
+
+width:100%;
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+2fr
+1fr
+1fr;
+gap:20px;
+padding:20px;
+}
+
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.15);
+border-radius:16px;
+padding:20px;
+/* backdrop-filter:blur(10px); */
+transition:transform .3s;
+
+}
+
+.card:hover{
+transform:scale3d(1.05,1.08,1);
+backdrop-filter:blur(150px);
+color:rgb(212, 210, 184);
+}
+
+
+/* HOURLY */
+
+.hours{
+display:flex;
+justify-content:space-between;
+text-align:center;
+}
+
+.hour span{
+font-size:22px;
+}
+
+
+/* FORECAST */
+
+.day{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid rgba(255,255,255,0.2);
+}
+.temp{
+display: flex;
+justify-content: space-between;
+gap: 12px;
+}
+
+
+
+/* aqi css for graph and all */
+.aqi-graph-line {
+  height: 12px;
+  background: #3d6394;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.aqi-number{
+font-size:36px;
+}
+.aqi-status{
+opacity:0.65;
+}
+.aqi-graph{
+height:8px;
+background:#3d6394;
+border-radius:10px;
+margin-top:10px;
+}
+
+.aqi-bar{
+height:100%;
+width:60%;
+border-radius:10px;
+background:
+linear-gradient(
+90deg,
+green,
+yellow,
+orange,
+red,
+rgb(135, 2, 2),
+rgb(98, 11, 98)
+);
+
+}
+
+/* MAP */
+.map-box{
+height:200px;
+overflow:hidden;
+border-radius:12px;
+margin-top:10px;
+}
+
+.map-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+
+/* INFO GRID */
+
+.info-grid{
+width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+padding:18px;
+}
+
+.info-card{
+background:rgba(255,255,255,0.15);
+border-radius:16px;
+padding:18px;
+text-align:center;
+transition:transform .3s;
+
+
+}
+.info-card:hover{
+
+transform:scale3d(1.07,1.08,1);
+backdrop-filter:blur(150px);
+color:rgb(212, 210, 184);
+}
+
+.top{
+position: relative;
+}
+.search-wrapper{
+position: absolute;
+top: 25px;
+right: 30px;
+width: 200px;
+z-index: 100;
+}
+.search-bar{
+display: flex;
+align-items: center;
+gap: 10px;
+background: rgba(255, 255, 255, 0.18);
+border: 1px solid rgba(255, 255, 255, 0.3);
+border-radius: 20px;     /* pill shape — like macOS */
+padding: 8px 14px;
+backdrop-filter: blur(12px);
+transition: background 0.2s, width 0.3s;
+}
+.search-bar:focus-within {     /* activates when input is focused */
+background: rgba(255, 255, 255, 0.28);
+border-color: rgba(255, 255, 255, 0.6);
+}
+
+.search-icon {
+font-size: 14px;
+opacity: 0.8;
+flex-shrink: 0;   /* stops the icon from squishing when input grows */
+}
+
+.search-input {
+background: none;           /* transparent — inherits the card background */
+border: none;
+outline: none;
+color: bisque;
+font-size: 14px;
+width: 100%;
+font-family: system-ui;
+}
+
+.search-input::placeholder {
+color: rgba(245, 222, 179, 0.55);
+font-size: 13px;
+}
+
+/* DROPDOWN RESULTS */
+.search-results {
+list-style: none;
+margin: 6px 0 0;
+padding: 0;
+background: rgba(15, 50, 110, 0.85);
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 12px;
+backdrop-filter: blur(20px);
+overflow: hidden;
+display: none;            /* hidden until there are results */
+}
+
+.search-results.visible {
+display: block;
+}
+
+.search-results li {
+padding: 10px 16px;
+cursor: pointer;
+font-size: 14px;
+color: bisque;
+border-bottom: 1px solid rgba(255,255,255,0.1);
+transition: background 0.15s;
+}
+
+.search-results li:last-child {
+border-bottom: none;
+}
+
+.search-results li:hover {
+background: rgba(255, 255, 255, 0.15);
+}
+
+/* Cickable card */
+.info-link{
+text-decoration: none;
+display: block;
+color: inherit;
+cursor: pointer;
+
+}
+/* Lightbox display  */
+.lightbox{
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.85);
+display: flex;
+justify-content: center;
+align-items: center;
+pointer-events: none;
+opacity: 0;
+transition:opacity .3s;
+}
+/* When opened */
+.lightbox:target{
+opacity:1;
+pointer-events:auto;
+}
+/* popup card */
+.lightbox-content{
+background-color: rgba(255,255,255,0.15);
+backdrop-filter: blur(20px);
+padding: 40px;
+border-radius: 20px;
+width: 420px;
+text-align: center;
+transform: scale(0.85);
+transition: transform .3s;
+position: relative;
+}
+
+/* Smooth animation */
+.lightbox:target .lightbox-content{
+transform: scale(1);
+}
+/* close button */
+.close{
+position:absolute;
+text-decoration: none;
+top: 20px;
+right: 30px;
+font-size: 22px;
+color: whitesmoke;
+}
+
+/* To remove the purple color of link :) */
+a{
+color: inherit;
+text-decoration: none;
+}
+
+/* Aqi Modal design */
+
+.aqi-main {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.pm-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.pm-box {
+  text-align: center;
+}
+
+/* base for the circle */
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin: auto;
+  color: white;
+}
+
+/*small circles */
+.circle.pm {
+  width: 70px;
+  height: 70px;
+  font-size: 18px;
+}
+
+/* colors */
+
+.good {
+  background: #2ecc71;
+}
+
+.moderate {
+  background: linear-gradient(yellow,rgb(123, 123, 3));
+  color: rgb(35, 32, 32);
+}
+
+.unhealthy {
+  background: linear-gradient(red,rgb(146, 9, 9));
+}
+
+.very-unhealthy {
+  background: #8e0b0b;
+}
+
+/* Info text */
+.aqi-info {
+  font-size: 14px;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+.sidebar {
+  width: 230px;
+  height: calc(100vh - 40px);
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+
+  padding: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255,255,255,0.15);
+
+  overflow-y: auto;
+
+  position: sticky;   /* ✅ KEY FIX */
+  top: 20px;
+}
+
+/* Header */
+.sidebar h3 {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Divider line */
+.sidebar h3::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 40px;
+  margin-top: 6px;
+  background: linear-gradient(to right, #fff, transparent);
+  border-radius: 10px;
+}
+
+/* List */
+#historyList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+/* Item */
+#historyList li {
+  padding: 12px 14px;
+  margin-bottom: 10px;
+
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Icon before city */
+#historyList li::before {
+  content: "📍";
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Hover effect */
+#historyList li:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateX(6px) scale(1.03);
+}
+
+/* Active click feel */
+#historyList li:active {
+  transform: scale(0.97);
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+
+.app-layout {
+  display: flex;
+  justify-content: center; /* centers whole layout */
+  gap: 30px;
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Sidebar stays fixed width */
+.sidebar {
+  width: 230px;
+  height: calc(100vh - 40px);
+  position: sticky;   /* smoother than fixed */
+  top: 20px;
+}
+
+/* Main content takes remaining space */
+.main-content {
+  flex: 1;
+  max-width: 1100px;
+}
+
+.date-time {
+  opacity: 0.8;
+  font-size: 14px;
+  margin-top: 5px;
+}

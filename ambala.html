@@ -1,0 +1,249 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Weather Dashboard</title>
+<link rel="stylesheet" href="weather.css">
+<link rel="stylesheet" href="Chandigarh.html">
+<!-- <link rel="stylesheet" href=""> -->
+</head>
+
+<body>
+
+<!--Sidebar-->
+<div class="sidebar">
+  <h2>Cities</h2>
+  <ul class="city-list">
+    <a href="Weather.html"><li>Patiala</li></a>
+    <a href="Chandigarh.html"><li> Chandigarh</li></a>
+    <li>Ambala</li>
+  </ul>
+</div>
+
+<!--Main section-->
+<div class="main-content">
+
+<!--Search bar-->
+<header class="top">
+  <div class="search-wrapper">
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search for a city or airport" />
+    </div>
+  </div>
+</header>
+
+<!--Headrer-->
+<header class="top">
+  <h1 class="city">Ambala</h1>
+  <div class="temperature">25°</div>
+  <p class="condition">Partly Raining</p>
+</header>
+
+<!--Dashboard-->
+<main class="dashboard">
+
+<a href="#hourly-card" class="card-link">
+<section class="card">
+<h2>Hourly</h2>
+<div class="hours">
+  <div class="hour"><p>11</p><span>🌤</span><p>25°</p></div>
+  <div class="hour"><p>12</p><span>🌤</span><p>24°</p></div>
+  <div class="hour"><p>13</p><span>🌤</span><p>23°</p></div>
+  <div class="hour"><p>14</p><span>☁</span><p>21°</p></div>
+</div>
+</section>
+</a>
+
+<a href="#daily" class="card-link">
+<section class="card">
+<h2>Daily Forecast</h2>
+<div class="day"><span>Today</span><span>17° / 26°</span></div>
+<div class="day"><span>Fri</span><span>17° / 28°</span></div>
+<div class="day"><span>Sat</span><span>15° / 26°</span></div>
+</section>
+</a>
+
+<a href="#cardair" class="card-link">
+<section class="card">
+<h2>Air Quality</h2>
+<div class="aqi-number">45</div>
+<p class="aqi-status">Good</p>
+<div class="aqi-graph"><div class="aqi-bar" style="background: linear-gradient(90deg,green,yellow);"></div></div>
+</section>
+</a>
+
+<!-- Wind Box-->
+<a href="#windModal" class="card-link">
+<section class="card">
+<h2>Wind</h2>
+<p>Speed: 32 km/h</p>
+<p>Gusts: 40 km/h</p>
+<p>Direction: NNW 🌬️</p>
+</section>
+</a>
+
+<!-- Precipitation Box-->
+<a href="#precipitationMap" class="card-link">
+<section class="card">
+<h2>Precipitation Map</h2>
+<div class="map-box">
+  <img src="precipitation.jpg" alt="Precipitation Map">
+</div>
+</section>
+</a>
+
+</main>
+
+<!--Info part-->
+<section class="info-grid">
+
+<a href="#uvModal" class="info-link">
+<div class="info-card">
+<h3>UV Index</h3>
+<p>2 Low</p>
+</div>
+</a>
+
+<a href="#Sunset" class="info-link">
+<div class="info-card">
+<h3>Sunset</h3>
+<p>18:09</p>
+</div>
+</a>
+
+<a href="#Feel" class="info-link">
+<div class="info-card">
+<h3>Feels Like</h3>
+<p>27°</p>
+</div>
+</a>
+
+<a href="#Precipitation" class="info-link">
+<div class="info-card">
+<h3>Precipitation</h3>
+<p>35 mm</p>
+</div>
+</a>
+
+</section>
+
+<!--pop up modals-->
+
+<div id="hourly-card" class="lightbox">
+<div class="lightbox-content">
+<a href="#" class="close">x</a>
+<h2>Hourly</h2>
+<div class="hours">
+  <div class="hour"><p>11</p><span>🌤</span><p>28°</p></div>
+  <div class="hour"><p>12</p><span>🌤</span><p>31°</p></div>
+  <div class="hour"><p>13</p><span>🌤</span><p>32°</p></div>
+  <div class="hour"><p>14</p><span>☁</span><p>32°</p></div>
+</div>
+</div>
+</div>
+
+<!-- Daily forecast modal  -->
+<div id="daily" class="lightbox">
+<div class="lightbox-content">
+<a href="#" class="close">x</a>
+<h2>Daily Forecast</h2>
+<div class="day"><span>Today</span><span>☀️ 17° / 26°</span></div>
+<div class="day"><span>Fri</span><span>☀️ 17° / 28°</span></div>
+<div class="day"><span>Sat</span><span>🌤️ 15° / 26  °</span></div>
+<div class="day"><span>Sun</span><span>🌤️ 14° / 27°</span></div>
+<div class="day"><span>Mon</span><span>🌤️ 15° / 29°</span></div>
+<div class="day"><span>Tue</span><span>☀️ 19° / 32°</span></div>
+<div class="day"><span>Wed</span><span>☀️ 18° / 30°</span></div>
+</div>
+</div>
+
+<div id="cardair" class="lightbox">
+<div class="lightbox-content">
+<a href="#" class="close">x</a>
+<h2>Air Quality</h2>
+    <div class="aqi-main">
+      <div class="circle aqi moderate">45</div>
+      <p class="aqi-status">Moderate</p>
+    </div>
+
+    <div class="pm-container">
+      <div class="pm-box">
+        <div class="circle pm unhealthy">32</div>
+        <p>PM2.5</p>
+      </div>
+
+      <div class="pm-box">
+        <div class="circle pm unhealthy">30</div>
+        <p>PM10</p>
+      </div>
+    </div>
+
+    <!-- Info about these small things -->
+    <div class="aqi-info">
+      <p><strong>PM2.5:</strong> Fine particles that can enter deep into lungs.</p>
+      <p><strong>PM10:</strong> Larger dust particles that affect breathing.</p>
+    </div>
+</div>
+</div>
+
+<div id="windModal" class="lightbox">
+<div class="lightbox-content">
+<a href="#" class="close">x</a>
+<h2>Wind Details</h2>
+<p>Speed: 12 km/h</p>
+<p>Gusts: 18 km/h</p>
+<p>Direction: NNW 🌬️</p>
+</div>
+</div>
+
+<div id="precipitationMap" class="lightbox">
+<div class="lightbox-content">
+<a href="#" class="close">x</a>
+<h2>Precipitation Map</h2>
+<div class="map-box" style="height:400px">
+  <img src="precipitation.jpg">
+</div>
+</div>
+</div>
+
+<!-- Small boxes  -->
+
+<div id="uvModal" class="lightbox">
+<div class="lightbox-content">
+<a href="#" class="close">x</a>
+<h2>UV Index</h2>
+<p>Current UV Index: 6</p>
+<p>Indicates sun intensity and risk of skin damage (higher = more harmful).</p>
+</div>
+</div>
+
+<div id="Sunset" class="lightbox">
+<div class="lightbox-content">
+<a href="#" class="close">x</a>
+<h2>Sunset</h2>
+<p>18:29</p>
+<p>Enjoy the present :) </p>
+</div>
+</div>
+
+<div id="Feel" class="lightbox">
+<div class="lightbox-content">
+<a href="#" class="close">x</a>
+<h2>Feels Like</h2>
+<p>Real temp: 28°</p>
+<p>Feels like: 27°  </p>
+</div>
+</div>
+
+<div id="Precipitation" class="lightbox">
+<div class="lightbox-content">
+<a href="#" class="close">x</a>
+<h2>Precipitation</h2>
+<p> 0 mm</p>
+<p>Chance or amount of rain/snow expected at a location.</p>
+</div>
+</div>
+
+</div>
+</body>
+</html>

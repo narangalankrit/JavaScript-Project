@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Weather Dashboard</title>
+<link rel="stylesheet" href="weather.css">
+</head>
+
+<body>
+
+<script src="weather.js" defer></script>
+
+<div class="app-layout">
+
+  <!-- ✅ SIDEBAR -->
+  <div class="sidebar">
+    <h3>Recent Searches</h3>
+    <ul id="historyList"></ul>
+  </div>
+
+  <!-- ✅ MAIN CONTENT -->
+  <div class="main-content">
+
+    <header class="top">
+      <div class="search-wrapper">
+        <div class="search-bar" id="searchBar">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="searchInput"
+            placeholder="Search for a city or airport" />
+        </div>
+        <ul class="search-results" id="searchResults"></ul>
+      </div>
+    </header>
+
+    <header class="top">
+      <h1 class="city">Patiala</h1>
+      <div class="temperature">28°</div>
+      <p class="condition">Partly Cloudy</p>
+
+      <p class="date-time" id="dateTime"></p>
+    </header>
+
+
+<main class="dashboard">
+
+<!-- Hourly forecast -->
+<a href="#hourly-card" class="card-link">
+<section class="card hourly">
+
+<h2>Hourly</h2>
+
+<div class="hours">
+
+<div class="hour">
+<p>11</p>
+<span>🌤</span>
+<p>28°</p>
+</div>
+
+<div class="hour">
+<p>12</p>
+<span>🌤</span>
+<p>31°</p>
+</div>
+
+<div class="hour">
+<p>13</p>
+<span>🌤</span>
+<p>32°</p>
+</div>
+
+<div class="hour">
+<p>14</p>
+<span>☁</span>
+<p>32°</p>
+</div>
+
+</div>
+
+</section>
+</a>
+
+
+
+<!-- Daily forecast -->
+<a href="#daily" class="card-link">
+<section class="card forecast">
+
+<h2>Daily Forecast</h2>
+
+<div class="day">
+<span>Today</span>
+<span>19° / 32°</span>
+</div>
+
+<div class="day">
+<span>Fri</span>
+<span>17° / 31°</span>
+</div>
+
+<div class="day">
+<span>Sat</span>
+<span>17° / 31°</span>
+</div>
+
+</section>
+</a>
+
+<!-- Air quality -->
+<a href="#cardair" class="card-link">
+<section class="card air">
+
+<h2>Air Quality</h2>
+<div class="aqi-number">104</div>
+<p class="aqi-status">Moderate</p>
+<div class="aqi-graph">
+<div class="aqi-bar"></div>
+</div>
+</section>
+</a>
+
+<!-- Wind -->
+
+<section class="card wind">
+
+<h2>Wind</h2>
+
+<p>Speed: 12 km/h</p>
+<p>Gusts: 18 km/h</p>
+<p>Direction: NNW</p>
+
+</section>
+
+
+<!-- Map -->
+
+<section class="card map">
+
+<h2>Precipitation Map</h2>
+
+<div class="map-box">
+  <iframe
+  id="windyMap"
+  width="100%"
+  height="200"
+  style="border-radius:12px; border:none;"
+  src="https://embed.windy.com/embed2.html?lat=30.34&lon=76.38&zoom=6&overlay=rain">
+</iframe>
+</div>
+
+</section>
+
+
+</main>
+
+<!-- Small cards :) -->
+<section class="info-grid">
+
+
+<a href="#uvModal" class="info-link">
+<div class="info-card">
+<h3>UV Index</h3>
+<p>6 High</p>
+</div>
+</a>
+
+
+<a href="#Sunset" class="info-link">
+<div class="info-card">
+<h3>Sunset</h3>
+<p>18:29</p>
+</div>
+</a>
+
+<a href="#Feel" class="info-link">
+<div class="info-card">
+<h3>Feels Like</h3>
+<p>28°</p>
+</div>
+</a>
+
+<a href="#Precipitation" class="info-link">
+<div class="info-card">
+<h3>Precipitation</h3>
+<p>0 mm</p>
+</div>
+</a>
+
+</section>
+
+<!-- Hourly Modal -->
+<div id="hourly-card" class="lightbox">
+  <div class="lightbox-content">
+    <a href="#" class="close">x</a>
+    <h2>Hourly</h2>
+
+        <div class="hours">
+
+        <div class="hour">
+        <p>11</p>
+        <span>🌤</span>
+        <p>28°</p>
+        </div>
+
+        <div class="hour">
+        <p>12</p>
+        <span>🌤</span>
+        <p>31°</p>
+        </div>
+
+        <div class="hour">
+        <p>13</p>
+        <span>🌤</span>
+        <p>32°</p>
+        </div>
+
+        <div class="hour">
+        <p>14</p>
+        <span>☁</span>
+        <p>32°</p>
+        </div>
+
+        </div>
+        <p> This block shows the hourly temperature </p>
+    
+  </div>
+</div>
+
+<!-- Daily Modal -->
+<div id="daily" class="lightbox">
+  <div class="lightbox-content">
+    <a href="#" class="close">x</a>
+    <h2>Daily Forecast</h2>
+      <div class="day">
+      <span>Today</span>
+      <span class="temp">
+        <span class="icon">☀️</span>
+          19° / 33°</span>
+      </div>
+
+      <div class="day">
+      <span>Fri</span>
+      <span class="temp">
+        <span class="icon">☀️</span>
+          17° / 31°</span>
+      </div>
+
+      <div class="day">
+      <span>Sat</span>
+      <span class="temp">
+        <span class="icon">🌤️</span>
+          16° / 29°</span>
+      </div>
+      
+      <div class="day">
+      <span>Sun</span>
+      <span class="temp">
+        <span class="icon">💨</span>
+          14° / 25°</span>
+      </div>
+
+      <div class="day">
+      <span>Mon</span>
+      <span class="temp">
+        <span class="icon">⛈️</span>
+          13° / 25°</span>
+      </div>
+
+      <div class="day">
+      <span>Tue</span>
+      <span class="temp">
+        <span class="icon">🌦️</span>
+          16° / 27°</span>
+      </div>
+
+      <div class="day">
+      <span>Wed</span>
+      <span class="temp">
+        <span class="icon">🌦️</span>
+          17° / 28°</span>
+      </div>
+  </div>
+</div>
+
+<!-- Air quality modal -->
+<div id="cardair" class="lightbox">
+  <div class="lightbox-content">
+    <a href="#" class="close">x</a>
+
+    <h2>Air Quality</h2>
+
+    <div class="aqi-main">
+      <div class="circle aqi moderate">104</div>
+      <p class="aqi-status">Moderate</p>
+    </div>
+
+    <div class="pm-container">
+      <div class="pm-box">
+        <div class="circle pm unhealthy">62</div>
+        <p>PM2.5</p>
+      </div>
+
+      <div class="pm-box">
+        <div class="circle pm unhealthy">110</div>
+        <p>PM10</p>
+      </div>
+    </div>
+
+    <!-- Info about these small things -->
+    <div class="aqi-info">
+      <p><strong>PM2.5:</strong> Fine particles that can enter deep into lungs.</p>
+      <p><strong>PM10:</strong> Larger dust particles that affect breathing.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Small block Modals -->
+<section>
+<div id="uvModal" class="lightbox">
+<div class="lightbox-content">
+  <a href="#" class="close">x</a>
+  <h2>UV Index</h2>
+  <p>Current UV Index:6</p>
+  <p>Protection recommended between 10am-4pm</p>
+
+</div>
+</div>
+<div id="Sunset" class="lightbox">
+<div class="lightbox-content">
+  <a href="#" class="close">x</a>
+  <h2>Sunset</h2>
+  <p>Enjoy the golden rays</p>
+  
+
+</div>
+</div>
+<div id="Feel" class="lightbox">
+<div class="lightbox-content">
+  <a href="#" class="close">x</a>
+  <h2>Feels like</h2>
+  <p>Actual temperature: 28°</p>
+  <p>Feels like: 25°</p>
+
+</div>
+</div>
+<div id="Precipitation" class="lightbox">
+<div class="lightbox-content">
+  <a href="#" class="close">x</a>
+  <h2>Precipitation</h2>
+  <p>0 mm</p>
+  <p>Precipitation is any form of water that falls from the atmosphere to the Earth’s surface, 
+    such as rain, snow, sleet, or hail.</p>
+
+</div>
+</div>
+</section>
+</div>
+</body>
+</html>
